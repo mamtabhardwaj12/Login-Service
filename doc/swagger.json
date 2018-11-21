@@ -1,0 +1,311 @@
+{
+    "info": {
+        "version": "v1.1",
+        "description": "",
+        "title": "Login Microservice v1.1 API Docs"
+    },
+    "paths": {
+        "/login": {
+            "get": {
+                "security": [
+                    {
+                        "oauth2": [
+                            "rw:Login"
+                        ]
+                    }
+                ],
+                "summary": "Get account details.",
+                "responses": {
+                    "201": {
+                        "description": "Successfully created",
+                        "schema": {}
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "Provide username.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "appName",
+                        "in": "query",
+                        "description": "Provide appName.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Login"
+                ]
+            },
+            "post": {
+                "security": [
+                    {
+                        "oauth2": [
+                            "rw:Login"
+                        ]
+                    }
+                ],
+                "summary": "authenticate a user",
+                "responses": {
+                    "201": {
+                        "description": "Successfully created",
+                        "schema": {
+                            "$ref": "#/definitions/Login"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/Login"
+                        },
+                        "required": true,
+                        "description": "Here you can authenticate a user.",
+                        "name": "body",
+                        "in": "body"
+                    }
+                ],
+                "tags": [
+                    "Login"
+                ]
+            },
+            "put": {
+                "security": [
+                    {
+                        "oauth2": [
+                            "rw:Login"
+                        ]
+                    }
+                ],
+                "summary": "change the password.",
+                "responses": {
+                    "201": {
+                        "description": "Successfully change the password",
+                        "schema": {
+                            "$ref": "#/definitions/ChangePassword"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/ChangePassword"
+                        },
+                        "required": true,
+                        "description": "Here you can change the password.",
+                        "name": "body",
+                        "in": "body"
+                    }
+                ],
+                "tags": [
+                    "Login"
+                ]
+            }
+        },
+        "/login/forgotPassword": {
+            "post": {
+                "security": [
+                    {
+                        "oauth2": [
+                            "rw:Forgot Password"
+                        ]
+                    }
+                ],
+                "summary": "forgot password",
+                "responses": {
+                    "201": {
+                        "description": "Successfully created",
+                        "schema": {
+                            "$ref": "#/definitions/tinyUrl"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/tinyUrl"
+                        },
+                        "required": true,
+                        "description": "Here you can change the password.",
+                        "name": "body",
+                        "in": "body"
+                    }
+                ],
+                "tags": [
+                    "Forgot Password"
+                ]
+            },
+            "put": {
+                "security": [
+                    {
+                        "oauth2": [
+                            "rw:Forgot Password"
+                        ]
+                    }
+                ],
+                "summary": "update the password.",
+                "responses": {
+                    "201": {
+                        "description": "Successfully update the password",
+                        "schema": {
+                            "$ref": "#/definitions/UpdatePassword"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/UpdatePassword"
+                        },
+                        "required": true,
+                        "description": "Here you can update the password.",
+                        "name": "body",
+                        "in": "body"
+                    }
+                ],
+                "tags": [
+                    "Forgot Password"
+                ]
+            }
+        }
+    },
+    "parameters": {},
+    "tags": [],
+    "definitions": {
+        "Login": {
+            "required": [],
+            "properties": {
+                "appName": {
+                    "type": "string",
+                    "description": "appName",
+                    "format": "string"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "username",
+                    "format": "string"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "password",
+                    "format": "string"
+                }
+            }
+        },
+        "GetData": {
+            "required": [],
+            "properties": {
+                "appName": {
+                    "type": "string",
+                    "description": "appName",
+                    "format": "string"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "username",
+                    "format": "string"
+                }
+            }
+        },
+        "ChangePassword": {
+            "required": [],
+            "properties": {
+                "appName": {
+                    "type": "string",
+                    "description": "appName",
+                    "format": "string"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "username",
+                    "format": "string"
+                },
+                "oldPassword": {
+                    "type": "string",
+                    "description": "password",
+                    "format": "string"
+                },
+                "newPassword": {
+                    "type": "string",
+                    "description": "password",
+                    "format": "string"
+                },
+                "confirmPassword": {
+                    "type": "string",
+                    "description": "password",
+                    "format": "string"
+                }
+            }
+        },
+        "tinyUrl": {
+            "required": [],
+            "properties": {
+                "appName": {
+                    "type": "string",
+                    "description": "appName",
+                    "format": "string"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "email",
+                    "format": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "url",
+                    "format": "string"
+                }
+            }
+        },        
+        "UpdatePassword": {
+            "required": [],
+            "properties": {
+                "appName": {
+                    "type": "string",
+                    "description": "appName",
+                    "format": "string"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "enter username.",
+                    "format": "string"
+                },
+                "newPassword": {
+                    "type": "string",
+                    "description": "enter new password.",
+                    "format": "string"
+                },
+                "confirmPassword": {
+                    "type": "string",
+                    "description": "enter confirm password.",
+                    "format": "string"
+                }
+            }
+        }
+    },
+    "security": [
+        {
+            "oauth2": []
+        }
+    ],
+    "swagger": "2.0"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "login-api",
+  "version": "1.0.0",
+  "description": "http://test.io/",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "mocha --timeout 100000"
+  },
+  "dependencies": {
+    "app-root-path": "^2.1.0",
+    "bcrypt-nodejs": "latest",
+    "bcryptjs": "^2.4.3",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.33",
+    "mongoskin": "^2.1.0",
+    "morgan": "^1.9.0",
+    "q": "^1.4.1",
+    "swagger-ui-express": "^3.0.10",
+    "tinyurl": "^1.1.2",
+    "winston": "^3.1.0",
+    "winston-daily-rotate-file": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "license": "ISC"
+}
